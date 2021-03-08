@@ -1,0 +1,16 @@
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\bin\Debug\Adventura.Models.dll.config
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\bin\Debug\Adventura.Models.dll
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\bin\Debug\Adventura.Models.pdb
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\bin\Debug\EntityFramework.dll
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\bin\Debug\EntityFramework.xml
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\obj\Debug\Adventura.Models.csprojAssemblyReference.cache
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\obj\Debug\Adventura.Models.csproj.CoreCompileInputs.cache
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\obj\Debug\Adventura.Models.csproj.CopyComplete
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\obj\Debug\Adventura.Models.dll
+C:\Users\jtpla\source\repos\BlueBadgeFinal\Adventura\Adventura.Models\obj\Debug\Adventura.Models.pdb
