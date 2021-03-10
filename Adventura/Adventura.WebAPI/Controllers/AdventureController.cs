@@ -14,10 +14,17 @@ namespace Adventura.WebAPI.Controllers
     public class AdventureController : ApiController
     {
         public IHttpActionResult Get()
-        {
+        {`
             AdventureService adventureService = CreateAdventureService();
             var adventures = adventureService.GetAdventures();
             return Ok(adventures);
+        }
+
+        public IHttpActionResult Get(int id)
+        {
+            AdventureService adventureService = CreateAdventureService();
+            var adventure = adventureService.GetAdventureById(id);
+            return Ok(adventure);
         }
 
         public IHttpActionResult Post(AdventureCreate adventure)
