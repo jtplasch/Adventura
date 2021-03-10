@@ -46,6 +46,8 @@ namespace Adventura.Data
                 .Add(new IdentityUserRoleConfiguration());
         }
 
+        public DbSet<Activity> Activities { get; set; }
+
     }
 
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
