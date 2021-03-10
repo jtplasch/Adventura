@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityListItem.cs" />
     <Compile Include="AdventureCreate.cs" />
     <Compile Include="AdventureListItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +65,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adventura.Data\Adventura.Data.csproj">
+      <Project>{884A3A48-7E71-4CF7-8DB4-5D62B2E5C7AA}</Project>
+      <Name>Adventura.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
