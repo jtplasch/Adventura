@@ -21,7 +21,7 @@ namespace Adventura.Services
         {
             var entity = new Adventure()
             {
-                OwnerId = _userId,
+                OwnerId = _userId,              
                 Title = model.Title,
                 Location = model.Location,
                 Activities = model.Activities,

@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Activity.cs" />
     <Compile Include="Adventure.cs" />
+    <Compile Include="AdventureDbContext.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202103091426467_InitialCreate.cs" />
     <Compile Include="Migrations\202103091426467_InitialCreate.designer.cs">
