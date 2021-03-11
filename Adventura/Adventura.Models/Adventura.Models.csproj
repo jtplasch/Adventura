@@ -87,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityListItem.cs" />
     <Compile Include="AdventureCreate.cs" />
     <Compile Include="AdventureDetail.cs" />
     <Compile Include="AdventureListItems.cs" />
@@ -99,6 +100,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Adventura.Data\Adventura.Data.csproj">
       <Project>{884a3a48-7e71-4cf7-8db4-5d62b2e5c7aa}</Project>
+      <Project>{884A3A48-7E71-4CF7-8DB4-5D62B2E5C7AA}</Project>
       <Name>Adventura.Data</Name>
     </ProjectReference>
   </ItemGroup>
