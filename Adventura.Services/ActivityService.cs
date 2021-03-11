@@ -17,6 +17,8 @@ namespace Adventura.Services
                 {
                     ActivityType = model.ActivityType,
                     ActivityDescription = model.ActivityDescription,
+                    ActivityLength = model.ActivityLength,
+                    ActivityCost = model.ActivityCost
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -26,26 +28,27 @@ namespace Adventura.Services
             }
         }
 
-        //public IEnumerable<ActivityListItem> GetActivities()
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var query =
-        //            ctx
-        //                .Activities
-        //                .Where(e => e.ActivityId)
-        //                .Select(
-        //                    e =>
-        //                        new ActivityListItem
-        //                        {
-        //                            ActivityType = e.Activitytype,
-        //                            Description = e.Description
-        //                        }
-        //                );
+        public IEnumerable<ActivityListItem> GetActivities()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Activities
+                        .Select(
+                            e =>
+                                new ActivityListItem
+                                {
+                                    ActivityType = e.ActivityType,
+                                    ActivityDescription = e.ActivityDescription,
+                                    ActivityLength = e.ActivityLength,
+                                    ActivityCost = e.ActivityCost
+                                }
+                        );
 
-        //        return query.ToArray();
-        //    }
-        //}
+                return query.ToArray();
+            }
+        }
 
     }
 }
