@@ -1,5 +1,4 @@
-﻿using Adventura.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,5 +14,6 @@ namespace Adventura.Models
         [Required]
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string ActivityDescription { get; set; }
+
     }
 }
