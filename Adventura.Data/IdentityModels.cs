@@ -48,6 +48,8 @@ namespace Adventura.Data
 
         public DbSet<Activity> Activities { get; set; }
 
+        public DbSet<Location> Locations { get; set; }
+
     }
 
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>

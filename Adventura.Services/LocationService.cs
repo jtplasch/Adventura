@@ -10,7 +10,7 @@ namespace Adventura.Services
 {
     public class LocationService
     {
-        public bool CreateLocation(LocationCreate model)
+        public bool CreateLocation(LocationList model)
         {
             var entity = new Location()
             {

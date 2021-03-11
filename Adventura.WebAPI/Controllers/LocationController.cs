@@ -20,7 +20,7 @@ namespace Adventura.WebAPI.Controllers
             return Ok(locations);
         }
 
-        public IHttpActionResult Post(LocationCreate location)
+        public IHttpActionResult Post(LocationList location)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
