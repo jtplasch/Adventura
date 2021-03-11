@@ -1,6 +1,7 @@
 ﻿using Adventura.Data;
 using Adventura.Models;
 using Adventura.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,9 +33,22 @@ namespace Adventura.WebAPI.Controllers
 
             return Ok();
         }
+        public IHttpActionResult Put(ActivityEdit activity)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateActivityService();
+
+            if (!service.UpdateActivity(activity))
+                return InternalServerError();
+
+            return Ok();
+        }
         private ActivityService CreateActivityService()
         {
-            var activityService = new ActivityService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var activityService = new ActivityService(userId);
             return activityService;
         }
     }
