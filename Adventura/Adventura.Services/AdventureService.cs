@@ -21,7 +21,7 @@ namespace Adventura.Services
         {
             var entity = new Adventure()
             {
-                OwnerId = _userId,
+                OwnerId = _userId,              
                 Title = model.Title,
                 Location = model.Location,
                 Activities = model.Activities,
@@ -55,6 +55,25 @@ namespace Adventura.Services
                             }
                         );
                 return query.ToArray();                                                     
+            }
+        }
+
+        public AdventureDetail GetAdventureById(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Adventures
+                    .Single(e => e.AdventureId == id && e.OwnerId == _userId);
+                return
+                    new AdventureDetail
+                    {
+                        AdventureId = entity.AdventureId,
+                        Title = entity.Title,
+                        Location = entity.Location,
+                        Activities = entity.Activities,
+                        CreatedUtc = entity.CreatedUtc
+                    };
             }
         }
     }
