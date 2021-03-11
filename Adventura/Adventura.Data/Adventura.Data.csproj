@@ -88,6 +88,7 @@
     <Compile Include="Adventure.cs" />
     <Compile Include="AdventureDbContext.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="location.cs" />
     <Compile Include="Migrations\202103091426467_InitialCreate.cs" />
     <Compile Include="Migrations\202103091426467_InitialCreate.designer.cs">
       <DependentUpon>202103091426467_InitialCreate.cs</DependentUpon>
