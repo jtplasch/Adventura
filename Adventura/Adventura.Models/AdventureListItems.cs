@@ -9,21 +9,10 @@ namespace Adventura.Models
 {
     public class AdventureListItems
     {
-        [Key]
         public int AdventureId { get; set; }
-
-        [Required]
-        [MaxLength(750, ErrorMessage = "You have reached the character limit.")]
-        public string Title { get; set; }
-
-        [Required]
-        [MaxLength(750, ErrorMessage = "You have reached the character limit.")]
-        public string Location { get; set; }
-
-        [MaxLength(1200, ErrorMessage = "You have reached the character limit.")]
+        public string Title { get; set; }        
+        public string Location { get; set; }       
         public string Activities { get; set; }
-
-        [Display(Name="Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 
     }

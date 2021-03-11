@@ -1,43 +1,72 @@
-﻿using Adventura.Models;
+﻿using Adventura.Data;
+using Adventura.Models;
 using Adventura.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Adventura.WebAPI.Controllers
 {
-    [Authorize]
     public class AdventureController : ApiController
     {
-        public IHttpActionResult Get()
-        {`
-            AdventureService adventureService = CreateAdventureService();
-            var adventures = adventureService.GetAdventures();
-            return Ok(adventures);
-        }
+        private readonly AdventureDbContext _context = new AdventureDbContext();
 
-        public IHttpActionResult Get(int id)
+        [HttpPost]
+        public async Task<IHttpActionResult> CreateAdventure(Adventure model)
         {
-            AdventureService adventureService = CreateAdventureService();
-            var adventure = adventureService.GetAdventureById(id);
-            return Ok(adventure);
-        }
+            if (ModelState.IsValid)
+            {
+                _context.Adventures.Add(model);
+                await _context.SaveChangesAsync();
 
-        public IHttpActionResult Post(AdventureCreate adventure)
-        {
-            if (!ModelState.IsValid)
+                return Ok();
+            }
                 return BadRequest(ModelState);
+        }
+        
+        [HttpGet]
+        public async Task<IHttpActionResult> GetAllAdventures()
+        {
+            List<Adventure> adventures = await _context.Adventures.ToListAsync();
 
-            var service = CreateAdventureService();
+            List<AdventureListItems> adventureList = adventures
+                .Select(a => new AdventureListItems()
+                {
+                    Title = a.Title,
+                    Location = a.Location,
+                    Activities = a.Activities,
+                    CreatedUtc = a.CreatedUtc,
+                    AdventureId = a.AdventureId,
+                }).ToList();
 
-            if (!service.CreateAdventure(adventure))
-                return InternalServerError();
+            return Ok(adventureList);
+        }
 
-            return Ok();
+        [HttpGet]
+        public async Task<IHttpActionResult> GetAdventureById(int id)
+        {
+            Adventure adventure = await _context.Adventures.FindAsync(id);
+
+            if(adventure == default)
+            {
+                return NotFound();
+            }
+
+            AdventureDetail adventureDetail = new AdventureDetail()
+            {
+                AdventureId = adventure.AdventureId,
+                Title = adventure.Title,
+                Location = adventure.Location,
+                Activities = adventure.Activities,
+                CreatedUtc = adventure.CreatedUtc,
+            };
+            return Ok(adventureDetail);
         }
 
         private AdventureService CreateAdventureService()

@@ -96,6 +96,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adventura.Data\Adventura.Data.csproj">
+      <Project>{884a3a48-7e71-4cf7-8db4-5d62b2e5c7aa}</Project>
+      <Name>Adventura.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
