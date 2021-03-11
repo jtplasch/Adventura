@@ -59,6 +59,8 @@
   <ItemGroup>
     <Compile Include="AdventureCreate.cs" />
     <Compile Include="AdventureListItems.cs" />
+    <Compile Include="LocationCreate.cs" />
+    <Compile Include="LocationList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
