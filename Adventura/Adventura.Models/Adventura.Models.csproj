@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityCreate.cs" />
     <Compile Include="ActivityListItem.cs" />
     <Compile Include="AdventureCreate.cs" />
     <Compile Include="AdventureListItems.cs" />

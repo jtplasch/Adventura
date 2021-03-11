@@ -25,5 +25,27 @@ namespace Adventura.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public IEnumerable<ActivityListItem> GetActivities()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Activities
+                        .Where(e => e.OwnerId == _userId)
+                        .Select(
+                            e =>
+                                new ActivityListItem
+                                {
+                                    ActivityType = e.Activitytype,
+                                    Description = e.Description
+                                }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
     }
 }
