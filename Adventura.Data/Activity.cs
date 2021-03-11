@@ -38,7 +38,6 @@ namespace Adventura.Data
         [Required]
         [ForeignKey(nameof(Location))]
         public int LocationId { get; set; }
-
         public virtual Location Location { get; set; }
     }
 }

@@ -10,16 +10,21 @@ namespace Adventura.Services
 {
     public class ActivityService
     {
+        private readonly Guid _userId;
+
+        public ActivityService(Guid userId)
+        {
+            _userId = userId;
+        }
         public bool CreateActivity(ActivityCreate model)
         {
-            var entity =
-                new Activity()
-                {
-                    ActivityType = model.ActivityType,
-                    ActivityDescription = model.ActivityDescription,
-                    ActivityLength = model.ActivityLength,
-                    ActivityCost = model.ActivityCost
-                };
+            var entity = new Activity()
+            {
+                ActivityType = model.ActivityType,
+                ActivityDescription = model.ActivityDescription,
+                ActivityLength = model.ActivityLength,
+                ActivityCost = model.ActivityCost
+            };
 
             using (var ctx = new ApplicationDbContext())
             {
@@ -36,19 +41,34 @@ namespace Adventura.Services
                     ctx
                         .Activities
                         .Select(
-                            e =>
-                                new ActivityListItem
-                                {
-                                    ActivityType = e.ActivityType,
-                                    ActivityDescription = e.ActivityDescription,
-                                    ActivityLength = e.ActivityLength,
-                                    ActivityCost = e.ActivityCost
-                                }
+                            e => new ActivityListItem
+                            {
+                                ActivityType = e.ActivityType,
+                                ActivityDescription = e.ActivityDescription,
+                                ActivityLength = e.ActivityLength,
+                                ActivityCost = e.ActivityCost
+                            }
                         );
 
                 return query.ToArray();
             }
         }
 
+        public bool UpdateActivity(ActivityEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Activities
+                        .Single();
+
+                entity.ActivityDescription = model.ActivityDescription;
+                entity.ActivityLength = model.ActivityLength;
+                entity.ActivityCost = model.ActivityCost;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
