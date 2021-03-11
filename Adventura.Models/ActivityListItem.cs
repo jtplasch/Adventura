@@ -11,8 +11,8 @@ namespace Adventura.Models
     public class ActivityListItem
     {
         public TypeOfActivity ActivityType { get; set; }
-        [MaxLength(90, ErrorMessage = "You have reached the character limit.")]
         public string ActivityDescription { get; set; }
-        public int PhoneNumber { get; set; }
+        public int ActivityLength { get; set; }
+        public double ActivityCost { get; set; }
     }
 }

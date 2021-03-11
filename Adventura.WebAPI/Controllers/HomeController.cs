@@ -10,7 +10,7 @@ namespace Adventura.WebAPI.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Adventura: Your destination awaits.";
 
             return View();
         }

@@ -1,5 +1,6 @@
 ﻿using Adventura.Data;
 using Adventura.Models;
+using Adventura.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,35 +11,31 @@ using System.Web.Http;
 
 namespace Adventura.WebAPI.Controllers
 {
+    [Authorize]
     public class ActivityController : ApiController
     {
-        private readonly ApplicationDbContext _context = new ApplicationDbContext();
-
-        [HttpPost]
-        public async Task<IHttpActionResult> CreateActivity(Activity model)
+        public IHttpActionResult Get()
         {
-            if (ModelState.IsValid)
-            {
-                _context.Activities.Add(model);
-                await _context.SaveChangesAsync();
-                return Ok();
-            }
-            return BadRequest(ModelState);
+            ActivityService activityService = CreateActivityService();
+            var activities = activityService.GetActivities();
+            return Ok(activities);
         }
+        public IHttpActionResult Post(ActivityCreate activity)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        
-        //public async Task<IHttpActionResult> GetAllActivitiesForLocation(int id)
-        //{
-        //    List<ActivityListItem> activities = await _context.Activities
+            var service = CreateActivityService();
 
-        //        .Where(a => a.LocationId == id)
-        //        .Select(a => new ActivityListItem()
-        //        {
-        //            ActivityType = a.ActivityType,
-        //            ActivityDescription = a.ActivityDescription
-        //        })
-        //        .ToListAsync();
-        //    return Ok(activities);
-        //}
+            if (!service.CreateActivity(activity))
+                return InternalServerError();
+
+            return Ok();
+        }
+        private ActivityService CreateActivityService()
+        {
+            var activityService = new ActivityService();
+            return activityService;
+        }
     }
 }

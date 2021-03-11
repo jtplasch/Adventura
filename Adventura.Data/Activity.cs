@@ -23,17 +23,22 @@ namespace Adventura.Data
     {
         [Key]
         public int ActivityId { get; set; }
+
         [Required]
         public TypeOfActivity ActivityType { get; set; }
+
         [Required]
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string ActivityDescription { get; set; }
-        public int ActivtyLength { get; set; }
+
+        public int ActivityLength { get; set; }
+
         public double ActivityCost { get; set; }
-        public int PhoneNumber { get; set; }
+
         [Required]
         [ForeignKey(nameof(Location))]
         public int LocationId { get; set; }
+
         public virtual Location Location { get; set; }
     }
 }
