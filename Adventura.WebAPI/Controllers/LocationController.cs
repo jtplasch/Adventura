@@ -13,6 +13,7 @@ namespace Adventura.WebAPI.Controllers
     [Authorize]
     public class LocationController : ApiController
     {
+        [HttpGet]
         public IHttpActionResult Get()
         {
             LocationService locationService = CreateLocationService();
@@ -20,6 +21,7 @@ namespace Adventura.WebAPI.Controllers
             return Ok(locations);
         }
 
+        [HttpPost]
         public IHttpActionResult Post(LocationList location)
         {
             if (!ModelState.IsValid)
@@ -28,6 +30,20 @@ namespace Adventura.WebAPI.Controllers
             var service = CreateLocationService();
 
             if (!service.CreateLocation(location))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult Put(LocationEdit location)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateLocationService();
+
+            if (!service.UpdateLocation(location))
                 return InternalServerError();
 
             return Ok();

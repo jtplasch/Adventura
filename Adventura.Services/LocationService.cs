@@ -48,5 +48,22 @@ namespace Adventura.Services
                 return query.ToArray();
             }
         }
+
+        public bool UpdateLocation(LocationEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Locations
+                        .Single();
+                entity.LocationId = model.LocationId;
+                entity.LocationName = model.LocationName;
+                entity.EditUtc = model.EditUtc;
+                entity.AdventureId = model.AdventureId;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

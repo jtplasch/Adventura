@@ -93,6 +93,8 @@
     <Compile Include="AdventureDetail.cs" />
     <Compile Include="AdventureListItems.cs" />
     <Compile Include="LocationCreate.cs" />
+    <Compile Include="LocationDelete.cs" />
+    <Compile Include="LocationEdit.cs" />
     <Compile Include="LocationList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
