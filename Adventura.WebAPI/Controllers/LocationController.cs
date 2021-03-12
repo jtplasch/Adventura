@@ -49,6 +49,17 @@ namespace Adventura.WebAPI.Controllers
             return Ok();
         }
 
+        [HttpDelete]
+        public IHttpActionResult Delete(LocationDelete location)
+        {
+            var service = CreateLocationService();
+
+            if (!service.DeleteLocation(location))
+                return InternalServerError();
+
+            return Ok();
+        }
+
         private LocationService CreateLocationService()
         {
             var locationService = new LocationService();
