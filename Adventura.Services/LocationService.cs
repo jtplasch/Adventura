@@ -65,5 +65,20 @@ namespace Adventura.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteLocation(LocationDelete model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Locations
+                        .Single();
+
+                ctx.Locations.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
