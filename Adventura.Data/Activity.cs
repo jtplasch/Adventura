@@ -34,10 +34,5 @@ namespace Adventura.Data
         public int ActivityLength { get; set; }
 
         public double ActivityCost { get; set; }
-
-        [Required]
-        [ForeignKey(nameof(Location))]
-        public int LocationId { get; set; }
-        public virtual Location Location { get; set; }
     }
 }
