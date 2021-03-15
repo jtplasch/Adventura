@@ -87,17 +87,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActivityCreate.cs" />
-    <Compile Include="ActivityEdit.cs" />
-    <Compile Include="ActivityListItem.cs" />
-    <Compile Include="AdventureCreate.cs" />
-    <Compile Include="AdventureDetail.cs" />
-    <Compile Include="AdventureEdit.cs" />
-    <Compile Include="AdventureListItems.cs" />
-    <Compile Include="LocationCreate.cs" />
-    <Compile Include="LocationDelete.cs" />
-    <Compile Include="LocationEdit.cs" />
-    <Compile Include="LocationList.cs" />
+    <Compile Include="ActivityModels\ActivityCreate.cs" />
+    <Compile Include="ActivityModels\ActivityEdit.cs" />
+    <Compile Include="ActivityModels\ActivityListItem.cs" />
+    <Compile Include="AdventureModels\AdventureCreate.cs" />
+    <Compile Include="AdventureModels\AdventureDetail.cs" />
+    <Compile Include="AdventureModels\AdventureEdit.cs" />
+    <Compile Include="AdventureModels\AdventureListItems.cs" />
+    <Compile Include="LocationModels\LocationCreate.cs" />
+    <Compile Include="LocationModels\LocationDelete.cs" />
+    <Compile Include="LocationModels\LocationEdit.cs" />
+    <Compile Include="LocationModels\LocationList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +111,7 @@
       <Name>Adventura.Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

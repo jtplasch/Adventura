@@ -25,6 +25,7 @@ namespace Adventura.Data
     {
         public ApplicationDbContext(): base("DefaultConnection", throwIfV1Schema: false){}
         
+
         public DbSet<Adventure> Adventures { get; set; }
         public DbSet<Activity> Activities { get; set; }
         public DbSet<Location> Locations { get; set; }
