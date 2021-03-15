@@ -7,13 +7,13 @@ namespace Adventura.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class InitialMigration : IMigrationMetadata
+    public sealed partial class changedActivityForeignKey : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(changedActivityForeignKey));
         
         string IMigrationMetadata.Id
         {
-            get { return "202103101528460_InitialMigration"; }
+            get { return "202103151523182_changedActivityForeignKey"; }
         }
         
         string IMigrationMetadata.Source

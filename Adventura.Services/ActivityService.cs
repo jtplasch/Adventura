@@ -54,6 +54,25 @@ namespace Adventura.Services
             }
         }
 
+        public ActivityDetail GetActivityById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Activities
+                        .Single(e => e.ActivityId == id);
+                return
+                    new ActivityDetail
+                    {
+                        ActivityId = entity.ActivityId,
+                        ActivityType = entity.ActivityType,
+                        ActivityDescription = entity.ActivityDescription,
+                        ActivityLength = entity.ActivityLength,
+                        ActivityCost = entity.ActivityCost
+                    };
+            }
+        }
         public bool UpdateActivity(ActivityEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -70,5 +89,22 @@ namespace Adventura.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+
+        public bool DeleteActivity(int activityId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Activities
+                        .Single(e => e.ActivityId == activityId);
+
+                ctx.Activities.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }
