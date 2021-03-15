@@ -22,5 +22,6 @@ namespace Adventura.Data
         [Required]
         [ForeignKey(nameof(Adventure))]
         public int AdventureId { get; set; }
+        public virtual Adventure Adventure { get; set; }
     }
 }

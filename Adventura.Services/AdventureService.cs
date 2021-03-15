@@ -58,22 +58,35 @@ namespace Adventura.Services
             }
         }
 
-        public AdventureDetail GetAdventureById(int id)
+        public bool UpdateAdventure(AdventureEdit model)
         {
             using(var ctx = new ApplicationDbContext())
             {
                 var entity = ctx
                     .Adventures
-                    .Single(e => e.AdventureId == id && e.OwnerId == _userId);
-                return
-                    new AdventureDetail
-                    {
-                        AdventureId = entity.AdventureId,
-                        Title = entity.Title,
-                        Location = entity.Location,
-                        Activities = entity.Activities,
-                        CreatedUtc = entity.CreatedUtc
-                    };
+                    .Single();
+
+                entity.AdventureId = model.AdventureId;
+                entity.Title = model.Title;
+                entity.Location = model.Location;
+                entity.Activities = model.Activities;
+                entity.CreatedUtc = model.CreatedUtc;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteAdventure(int adventureId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Adventures
+                    .Single(e => e.AdventureId == adventureId);
+
+                ctx.Adventures.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }
