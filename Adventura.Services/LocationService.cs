@@ -16,7 +16,6 @@ namespace Adventura.Services
             {
                 LocationId = model.LocationId,
                 LocationName = model.LocationName,
-                AdventureId = model.AdventureId,
                 CreatedUtc = DateTimeOffset.Now
             };
 
@@ -41,7 +40,6 @@ namespace Adventura.Services
                         {
                             LocationId = e.LocationId,
                             LocationName = e.LocationName,
-                            AdventureId = e.AdventureId,
                             CreatedUtc = e.CreatedUtc
                         }
                         );
@@ -60,7 +58,6 @@ namespace Adventura.Services
                 entity.LocationId = model.LocationId;
                 entity.LocationName = model.LocationName;
                 entity.EditUtc = model.EditUtc;
-                entity.AdventureId = model.AdventureId;
 
                 return ctx.SaveChanges() == 1;
             }

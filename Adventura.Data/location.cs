@@ -20,10 +20,5 @@ namespace Adventura.Data
         public DateTimeOffset CreatedUtc { get; set; }
 
         public DateTimeOffset EditUtc { get; set; }
-
-        [Required]
-        [ForeignKey(nameof(Adventure))]
-        public int AdventureId { get; set; }
-        public virtual Adventure Adventure { get; set; }
     }
 }
