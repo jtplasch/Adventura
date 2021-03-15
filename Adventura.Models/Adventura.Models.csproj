@@ -98,6 +98,7 @@
     <Compile Include="LocationModels\LocationDelete.cs" />
     <Compile Include="LocationModels\LocationEdit.cs" />
     <Compile Include="LocationModels\LocationList.cs" />
+    <Compile Include="ActivityModels\ActivityDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
