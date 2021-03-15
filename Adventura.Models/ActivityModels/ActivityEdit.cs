@@ -9,6 +9,7 @@ namespace Adventura.Models
 {
     public class ActivityEdit
     {
+        public int ActivityId { get; set; }
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string ActivityDescription { get; set; }
         public int ActivityLength { get; set; }
