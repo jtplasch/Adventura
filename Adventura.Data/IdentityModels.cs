@@ -23,17 +23,13 @@ namespace Adventura.Data
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
-        {
-        }
+        public ApplicationDbContext(): base("DefaultConnection", throwIfV1Schema: false){}
         
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
-
         public DbSet<Adventure> Adventures { get; set; }
+        public DbSet<Activity> Activities { get; set; }
+        public DbSet<Location> Locations { get; set; }
+
+        public static ApplicationDbContext Create() => new ApplicationDbContext();
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
@@ -44,12 +40,7 @@ namespace Adventura.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
-        }
-
-        public DbSet<Activity> Activities { get; set; }
-
-        public DbSet<Location> Locations { get; set; }
-
+        }        
     }
 
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>

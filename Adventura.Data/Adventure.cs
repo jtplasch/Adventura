@@ -26,5 +26,7 @@ namespace Adventura.Data
         [Display(Name = "Enter activities and places of interest you visited:")]
         public string Activities { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
+
+        public virtual List<Location> Locations { get; set; }
     }
 }
