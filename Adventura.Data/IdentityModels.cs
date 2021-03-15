@@ -24,7 +24,8 @@ namespace Adventura.Data
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(): base("DefaultConnection", throwIfV1Schema: false){}
-        
+
+        public DbSet<User> Users { get; set; }
         public DbSet<Adventure> Adventures { get; set; }
         public DbSet<Activity> Activities { get; set; }
         public DbSet<Location> Locations { get; set; }

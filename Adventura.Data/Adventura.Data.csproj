@@ -96,8 +96,17 @@
     <Compile Include="Migrations\202103121559152_RedidMigrations.designer.cs">
       <DependentUpon>202103121559152_RedidMigrations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103151352563_SecondMigration.cs" />
+    <Compile Include="Migrations\202103151352563_SecondMigration.designer.cs">
+      <DependentUpon>202103151352563_SecondMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103151530530_UserTable.cs" />
+    <Compile Include="Migrations\202103151530530_UserTable.designer.cs">
+      <DependentUpon>202103151530530_UserTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -109,6 +118,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103121559152_RedidMigrations.resx">
       <DependentUpon>202103121559152_RedidMigrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103151352563_SecondMigration.resx">
+      <DependentUpon>202103151352563_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103151530530_UserTable.resx">
+      <DependentUpon>202103151530530_UserTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
