@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityCreate.cs" />
+    <Compile Include="ActivityDetail.cs" />
     <Compile Include="ActivityEdit.cs" />
     <Compile Include="ActivityListItem.cs" />
     <Compile Include="AdventureCreate.cs" />
