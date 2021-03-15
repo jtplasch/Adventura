@@ -1,4 +1,4 @@
-using Adventura.Data;
+﻿using Adventura.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Adventura.Models
 {
-    public class ActivityListItem
+    public class ActivityDetail
     {
         public int ActivityId { get; set; }
         [Display(Name = "Type of Activity")]
