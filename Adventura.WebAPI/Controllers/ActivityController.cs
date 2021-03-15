@@ -15,12 +15,6 @@ namespace Adventura.WebAPI.Controllers
     [Authorize]
     public class ActivityController : ApiController
     {
-        public IHttpActionResult Get()
-        {
-            ActivityService activityService = CreateActivityService();
-            var activities = activityService.GetActivities();
-            return Ok(activities);
-        }
         public IHttpActionResult Post(ActivityCreate activity)
         {
             if (!ModelState.IsValid)
@@ -33,6 +27,12 @@ namespace Adventura.WebAPI.Controllers
 
             return Ok();
         }
+        public IHttpActionResult Get()
+        {
+            ActivityService activityService = CreateActivityService();
+            var activities = activityService.GetActivities();
+            return Ok(activities);
+        }
         public IHttpActionResult Put(ActivityEdit activity)
         {
             if (!ModelState.IsValid)
@@ -44,6 +44,12 @@ namespace Adventura.WebAPI.Controllers
                 return InternalServerError();
 
             return Ok();
+        }
+        public IHttpActionResult Get(int id)
+        {
+            ActivityService activityService = CreateActivityService();
+            var activity = activityService.GetActivityById(id);
+            return Ok(activity);
         }
         private ActivityService CreateActivityService()
         {
