@@ -15,10 +15,12 @@ namespace Adventura.Models
 
         [Required]
         [MaxLength(750, ErrorMessage = "You have reached the character limit.")]
-        public string Location { get; set; }
+        public int LocationId { get; set; }
 
         [MaxLength(1200, ErrorMessage = "You have reached the character limit.")]
-        public string Activities { get; set; }
+        public int ActivityId { get; set; }
+
+        public int user_Id { get; set; }
 
     }
 }

@@ -19,5 +19,7 @@ namespace Adventura.Data
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
+
+        public virtual ICollection<Adventure> Adventures { get; set; } = new List<Adventure>();
     }
 }

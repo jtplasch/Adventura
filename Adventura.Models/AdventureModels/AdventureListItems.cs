@@ -11,8 +11,8 @@ namespace Adventura.Models
     {
         public int AdventureId { get; set; }
         public string Title { get; set; }        
-        public string Location { get; set; }       
-        public string Activities { get; set; }
+        public int LocationId { get; set; }       
+        public int ActivityId { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
 
     }

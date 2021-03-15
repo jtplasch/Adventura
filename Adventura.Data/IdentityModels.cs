@@ -26,7 +26,6 @@ namespace Adventura.Data
         public ApplicationDbContext(): base("DefaultConnection", throwIfV1Schema: false){}
 
         public DbSet<User> Users { get; set; }
-=======
         
 
         public DbSet<Adventure> Adventures { get; set; }
