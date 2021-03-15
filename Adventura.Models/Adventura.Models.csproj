@@ -93,6 +93,7 @@
     <Compile Include="ActivityListItem.cs" />
     <Compile Include="AdventureCreate.cs" />
     <Compile Include="AdventureDetail.cs" />
+    <Compile Include="AdventureEdit.cs" />
     <Compile Include="AdventureListItems.cs" />
     <Compile Include="LocationCreate.cs" />
     <Compile Include="LocationDelete.cs" />

@@ -90,5 +90,21 @@ namespace Adventura.Services
             }
         }
 
+
+        public bool DeleteActivity(int activityId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Activities
+                        .Single(e => e.ActivityId == activityId);
+
+                ctx.Activities.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }

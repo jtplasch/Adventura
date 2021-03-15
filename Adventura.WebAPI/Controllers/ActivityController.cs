@@ -45,12 +45,25 @@ namespace Adventura.WebAPI.Controllers
 
             return Ok();
         }
+
         public IHttpActionResult Get(int id)
         {
             ActivityService activityService = CreateActivityService();
             var activity = activityService.GetActivityById(id);
             return Ok(activity);
         }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateActivityService();
+
+            if (!service.DeleteActivity(id))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+
         private ActivityService CreateActivityService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
