@@ -22,17 +22,20 @@ namespace Adventura.Data
     public class Activity
     {
         [Key]
+        [Display(Name = "Id")]
         public int ActivityId { get; set; }
 
         [Required]
+        [Display(Name = "Type")]
         public TypeOfActivity ActivityType { get; set; }
 
         [Required]
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
+        [Display(Name = "Description")]
         public string ActivityDescription { get; set; }
-
+        [Display(Name = "Time")]
         public int ActivityLength { get; set; }
-
+        [Display(Name = "Cost")]
         public double ActivityCost { get; set; }
     }
 }
