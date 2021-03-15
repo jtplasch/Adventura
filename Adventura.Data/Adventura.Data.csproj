@@ -112,6 +112,14 @@
     <Compile Include="Migrations\202103151736305_BigMerge.designer.cs">
       <DependentUpon>202103151736305_BigMerge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103151904227_activityEdit.cs" />
+    <Compile Include="Migrations\202103151904227_activityEdit.designer.cs">
+      <DependentUpon>202103151904227_activityEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103152029423_removedActivityId.cs" />
+    <Compile Include="Migrations\202103152029423_removedActivityId.designer.cs">
+      <DependentUpon>202103152029423_removedActivityId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
@@ -138,6 +146,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103151736305_BigMerge.resx">
       <DependentUpon>202103151736305_BigMerge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103151904227_activityEdit.resx">
+      <DependentUpon>202103151904227_activityEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103152029423_removedActivityId.resx">
+      <DependentUpon>202103152029423_removedActivityId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

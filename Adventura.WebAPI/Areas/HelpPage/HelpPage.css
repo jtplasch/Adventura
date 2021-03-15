@@ -4,7 +4,11 @@
 .help-page .h2,
 .help-page h3,
 .help-page .h3,
-#body.help-page,
+
+#body.help-page {
+color:azure seagreen;
+}
+
 .help-page-table th,
 .help-page-table pre,
 .help-page-table p {
