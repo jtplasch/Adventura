@@ -35,6 +35,14 @@ namespace Adventura.WebAPI.Controllers
             var adventures = adventureService.GetAdventures();
             return Ok(adventures);
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            AdventureService adventureService = CreateAdventureService();
+            var adventure = adventureService.GetAdventureById(id);
+            return Ok(adventure);
+        }
+
         public IHttpActionResult Put(AdventureEdit adventure)
         {
             if (!ModelState.IsValid)
