@@ -115,13 +115,6 @@
     <Compile Include="Migrations\202103161220322_CleanUpAdventure.cs" />
     <Compile Include="Migrations\202103161220322_CleanUpAdventure.designer.cs">
       <DependentUpon>202103161220322_CleanUpAdventure.cs</DependentUpon>
-    <Compile Include="Migrations\202103151904227_activityEdit.cs" />
-    <Compile Include="Migrations\202103151904227_activityEdit.designer.cs">
-      <DependentUpon>202103151904227_activityEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103152029423_removedActivityId.cs" />
-    <Compile Include="Migrations\202103152029423_removedActivityId.designer.cs">
-      <DependentUpon>202103152029423_removedActivityId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,11 +145,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103161220322_CleanUpAdventure.resx">
       <DependentUpon>202103161220322_CleanUpAdventure.cs</DependentUpon>
-    <EmbeddedResource Include="Migrations\202103151904227_activityEdit.resx">
-      <DependentUpon>202103151904227_activityEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103152029423_removedActivityId.resx">
-      <DependentUpon>202103152029423_removedActivityId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
