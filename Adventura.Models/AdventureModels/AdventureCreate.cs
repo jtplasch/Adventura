@@ -10,17 +10,10 @@ namespace Adventura.Models
     public class AdventureCreate
     {
         [Required]
-        [MaxLength(750, ErrorMessage = "You have reached the character limit.")]
+        [MaxLength(100, ErrorMessage = "You have reached the character limit.")]
         public string Title { get; set; }
 
-        [Required]
-        [MaxLength(750, ErrorMessage = "You have reached the character limit.")]
-        public int LocationId { get; set; }
-
-        [MaxLength(1200, ErrorMessage = "You have reached the character limit.")]
-        public int ActivityId { get; set; }
-
-        public int user_Id { get; set; }
-
+        [MaxLength(500, ErrorMessage = "You have reached the character limit.")]
+        public string Description { get; set; }        
     }
 }

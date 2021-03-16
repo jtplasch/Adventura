@@ -23,9 +23,8 @@ namespace Adventura.Services
             {
                 OwnerId = _userId,              
                 Title = model.Title,
-                LocationId = model.LocationId,
-                ActivityId = model.ActivityId,
-                user_Id = model.user_Id             
+                Description = model.Description,
+                CreatedUtc = DateTimeOffset.Now             
             };
 
             using(var ctx = new ApplicationDbContext())
@@ -48,13 +47,30 @@ namespace Adventura.Services
                         .Select(e => new AdventureListItems
                             {
                                 AdventureId = e.AdventureId,
-                                Title = e.Title,
-                                LocationId = e.LocationId,
-                                ActivityId = e.ActivityId,
+                                Title = e.Title,                                
                                 CreatedUtc = e.CreatedUtc
                             }
                         );
                 return query.ToArray();                                                     
+            }
+        }
+
+        public AdventureDetail GetAdventureById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Adventures
+                    .Single(e => e.AdventureId == id && e.OwnerId == _userId);
+                return
+                    new AdventureDetail
+                    {
+                        AdventureId = entity.AdventureId,
+                        Title = entity.Title,
+                        Description = entity.Description,
+                        CreatedUtc = entity.CreatedUtc
+                    };
+
             }
         }
 
@@ -64,13 +80,11 @@ namespace Adventura.Services
             {
                 var entity = ctx
                     .Adventures
-                    .Single();
+                    .Single(e => e.AdventureId == model.AdventureId && e.OwnerId == _userId);
 
                 entity.AdventureId = model.AdventureId;
                 entity.Title = model.Title;
-                entity.LocationId = model.LocationId;
-                entity.ActivityId = model.ActivityId;
-                entity.CreatedUtc = model.CreatedUtc;
+                entity.Description = model.Description;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -82,7 +96,7 @@ namespace Adventura.Services
             {
                 var entity = ctx
                     .Adventures
-                    .Single(e => e.AdventureId == adventureId);
+                    .Single(e => e.AdventureId == adventureId && e.OwnerId == _userId);
 
                 ctx.Adventures.Remove(entity);
 
