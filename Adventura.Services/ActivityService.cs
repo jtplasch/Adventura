@@ -18,7 +18,7 @@ namespace Adventura.Services
         }
         public bool CreateActivity(ActivityCreate model)
         {
-            var entity = new Activity()
+            var entity = new Activity
             {
                 ActivityType = model.ActivityType,
                 ActivityDescription = model.ActivityDescription,
