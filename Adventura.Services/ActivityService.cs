@@ -65,7 +65,6 @@ namespace Adventura.Services
                 return
                     new ActivityDetail
                     {
-                        ActivityId = entity.ActivityId,
                         ActivityType = entity.ActivityType,
                         ActivityDescription = entity.ActivityDescription,
                         ActivityLength = entity.ActivityLength,
@@ -80,7 +79,7 @@ namespace Adventura.Services
                 var entity =
                     ctx
                         .Activities
-                        .Single();
+                        .Single(e => e.ActivityId == model.ActivityId);
 
                 entity.ActivityDescription = model.ActivityDescription;
                 entity.ActivityLength = model.ActivityLength;
