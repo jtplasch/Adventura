@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 namespace Adventura.Models
 {
     public class LocationDelete
-    {
-        public int LocationId { get; set; }
+    {        
         public string LocationName { get; set; }
-        public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset EditUtc { get; set; }
-        public int AdventureId { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }        
     }
 }

@@ -11,6 +11,4 @@ namespace Adventura.Tests
         {
         }
     }
-
-       
 }

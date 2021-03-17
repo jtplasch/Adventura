@@ -10,13 +10,17 @@ namespace Adventura.Services
 {
     public class LocationService
     {
-        public bool CreateLocation(LocationList model)
+        private readonly Guid _userid;
+        public LocationService(Guid userid)
         {
+            _userid = userid;
+        }
+
+        public bool CreateLocation(LocationCreate model)
+        {           
             var entity = new Location()
-            {
-                LocationId = model.LocationId,
-                LocationName = model.LocationName,
-                CreatedUtc = DateTimeOffset.Now
+            {                
+                LocationName = model.LocationName               
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -47,6 +51,23 @@ namespace Adventura.Services
             }
         }
 
+        public LocationDelete GetLocationById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Locations
+                        .Single(e => e.LocationId == id);
+                return
+                    new LocationDelete
+                    {
+                        LocationName = entity.LocationName,
+                        CreatedUtc = entity.CreatedUtc
+                    };
+            }
+        }
+
         public bool UpdateLocation(LocationEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -54,23 +75,23 @@ namespace Adventura.Services
                 var entity =
                     ctx
                         .Locations
-                        .Single();
+                        .Single(e => e.LocationId == model.LocationId);
+
                 entity.LocationId = model.LocationId;
-                entity.LocationName = model.LocationName;
-                entity.EditUtc = model.EditUtc;
+                entity.LocationName = model.LocationName;                
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool DeleteLocation(LocationDelete model)
+        public bool DeleteLocation(int locationId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Locations
-                        .Single();
+                        .Single(e => e.LocationId == locationId);
 
                 ctx.Locations.Remove(entity);
 
