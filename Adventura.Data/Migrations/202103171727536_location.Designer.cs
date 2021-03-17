@@ -7,13 +7,13 @@ namespace Adventura.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class devonFinished : IMigrationMetadata
+    public sealed partial class location : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(devonFinished));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(location));
         
         string IMigrationMetadata.Id
         {
-            get { return "202103151349094_devonFinished"; }
+            get { return "202103171727536_location"; }
         }
         
         string IMigrationMetadata.Source
