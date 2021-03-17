@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Adventura.Data.ApplicationDbContext";
         }
 
         protected override void Seed(Adventura.Data.ApplicationDbContext context)

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -88,41 +88,9 @@
     <Compile Include="Adventure.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="location.cs" />
-    <Compile Include="Migrations\202103091826500_InitialCreate.cs" />
-    <Compile Include="Migrations\202103091826500_InitialCreate.designer.cs">
-      <DependentUpon>202103091826500_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103121559152_RedidMigrations.cs" />
-    <Compile Include="Migrations\202103121559152_RedidMigrations.designer.cs">
-      <DependentUpon>202103121559152_RedidMigrations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103151352563_SecondMigration.cs" />
-    <Compile Include="Migrations\202103151352563_SecondMigration.designer.cs">
-      <DependentUpon>202103151352563_SecondMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103151530530_UserTable.cs" />
-    <Compile Include="Migrations\202103151530530_UserTable.designer.cs">
-      <DependentUpon>202103151530530_UserTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103151723055_ForeignKeyUpdate1.cs" />
-    <Compile Include="Migrations\202103151723055_ForeignKeyUpdate1.designer.cs">
-      <DependentUpon>202103151723055_ForeignKeyUpdate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103151736305_BigMerge.cs" />
-    <Compile Include="Migrations\202103151736305_BigMerge.designer.cs">
-      <DependentUpon>202103151736305_BigMerge.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103161220322_CleanUpAdventure.cs" />
-    <Compile Include="Migrations\202103161220322_CleanUpAdventure.designer.cs">
-      <DependentUpon>202103161220322_CleanUpAdventure.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103171535425_LocationEdits.cs" />
-    <Compile Include="Migrations\202103171535425_LocationEdits.designer.cs">
-      <DependentUpon>202103171535425_LocationEdits.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103171546226_AddLocationId.cs" />
-    <Compile Include="Migrations\202103171546226_AddLocationId.designer.cs">
-      <DependentUpon>202103171546226_AddLocationId.cs</DependentUpon>
+    <Compile Include="Migrations\202103171727536_location.cs" />
+    <Compile Include="Migrations\202103171727536_location.designer.cs">
+      <DependentUpon>202103171727536_location.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,32 +101,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103091826500_InitialCreate.resx">
-      <DependentUpon>202103091826500_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103121559152_RedidMigrations.resx">
-      <DependentUpon>202103121559152_RedidMigrations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103151352563_SecondMigration.resx">
-      <DependentUpon>202103151352563_SecondMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103151530530_UserTable.resx">
-      <DependentUpon>202103151530530_UserTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103151723055_ForeignKeyUpdate1.resx">
-      <DependentUpon>202103151723055_ForeignKeyUpdate1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103151736305_BigMerge.resx">
-      <DependentUpon>202103151736305_BigMerge.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103161220322_CleanUpAdventure.resx">
-      <DependentUpon>202103161220322_CleanUpAdventure.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103171535425_LocationEdits.resx">
-      <DependentUpon>202103171535425_LocationEdits.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103171546226_AddLocationId.resx">
-      <DependentUpon>202103171546226_AddLocationId.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103171727536_location.resx">
+      <DependentUpon>202103171727536_location.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
