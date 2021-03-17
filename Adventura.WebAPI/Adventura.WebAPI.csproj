@@ -463,6 +463,9 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Adventura.Data\Adventura.Data.csproj">
       <Project>{884a3a48-7e71-4cf7-8db4-5d62b2e5c7aa}</Project>
       <Name>Adventura.Data</Name>
@@ -475,9 +478,6 @@
       <Project>{55116f68-330c-40f1-9189-21513b420349}</Project>
       <Name>Adventura.Services</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

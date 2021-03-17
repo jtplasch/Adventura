@@ -10,7 +10,5 @@ namespace Adventura.Models
     {
         public int LocationId { get; set; }
         public string LocationName { get; set; }
-        public DateTimeOffset EditUtc { get; set; }
-        public int AdventureId { get; set; }
     }
 }

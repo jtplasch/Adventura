@@ -18,7 +18,6 @@ namespace Adventura.Data
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
-
-        public DateTimeOffset EditUtc { get; set; }
+        
     }
 }

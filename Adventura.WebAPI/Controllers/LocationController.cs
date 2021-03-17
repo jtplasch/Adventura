@@ -9,20 +9,10 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace Adventura.WebAPI.Controllers
-{
-    [Authorize]
+{   
     public class LocationController : ApiController
     {
-        [HttpGet]
-        public IHttpActionResult Get()
-        {
-            LocationService locationService = CreateLocationService();
-            var locations = locationService.GetLocations();
-            return Ok(locations);
-        }
-
-        [HttpPost]
-        public IHttpActionResult Post(LocationList location)
+        public IHttpActionResult Post(LocationCreate location)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -35,7 +25,22 @@ namespace Adventura.WebAPI.Controllers
             return Ok();
         }
 
-        [HttpPut]
+        public IHttpActionResult Get()
+        {
+            LocationService locationService = CreateLocationService();
+            var locations = locationService.GetLocations();
+            return Ok(locations);
+        }
+
+        public IHttpActionResult Get(int id)
+        {
+            LocationService locationService = CreateLocationService();
+            var location = locationService.GetLocationById(id);
+            return Ok(location);
+        }
+
+
+
         public IHttpActionResult Put(LocationEdit location)
         {
             if (!ModelState.IsValid)
@@ -49,12 +54,12 @@ namespace Adventura.WebAPI.Controllers
             return Ok();
         }
 
-        [HttpDelete]
-        public IHttpActionResult Delete(LocationDelete location)
+      
+        public IHttpActionResult Delete(int id)
         {
             var service = CreateLocationService();
 
-            if (!service.DeleteLocation(location))
+            if (!service.DeleteLocation(id))
                 return InternalServerError();
 
             return Ok();
@@ -62,7 +67,8 @@ namespace Adventura.WebAPI.Controllers
 
         private LocationService CreateLocationService()
         {
-            var locationService = new LocationService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var locationService = new LocationService(userId);
             return locationService;
         }
     }
