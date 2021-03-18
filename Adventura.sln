@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventura.Tests", "Adventur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventura.UI", "Adventura.UI\Adventura.UI.csproj", "{7B950975-393B-4AE4-B4B3-EDE9A62F26C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventura.UI", "Adventura.UI\Adventura.UI.csproj", "{7B950975-393B-4AE4-B4B3-EDE9A62F26C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,10 +39,17 @@ Global
 		{B880A7B1-DE57-4394-86DE-8938CF217BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B880A7B1-DE57-4394-86DE-8938CF217BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B880A7B1-DE57-4394-86DE-8938CF217BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< Updated upstream
 		{8C1B378B-DEB5-4070-8E75-7A5AF9D722C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8C1B378B-DEB5-4070-8E75-7A5AF9D722C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C1B378B-DEB5-4070-8E75-7A5AF9D722C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C1B378B-DEB5-4070-8E75-7A5AF9D722C5}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{38322179-E473-4506-8FDE-B2E95F2FEA3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38322179-E473-4506-8FDE-B2E95F2FEA3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38322179-E473-4506-8FDE-B2E95F2FEA3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38322179-E473-4506-8FDE-B2E95F2FEA3A}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> Stashed changes
 		{7B950975-393B-4AE4-B4B3-EDE9A62F26C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7B950975-393B-4AE4-B4B3-EDE9A62F26C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B950975-393B-4AE4-B4B3-EDE9A62F26C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
