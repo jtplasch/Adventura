@@ -164,10 +164,6 @@
     <Compile Include="LocationModels\LocationList.cs" />
     <Compile Include="ActivityModels\ActivityDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserModels\UserCreate.cs" />
-    <Compile Include="UserModels\UserDetail.cs" />
-    <Compile Include="UserModels\UserEdit.cs" />
-    <Compile Include="UserModels\UserListItems.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -100,9 +100,12 @@
     <Compile Include="Migrations\202103172336149_Foreignkeychange.designer.cs">
       <DependentUpon>202103172336149_Foreignkeychange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103180453456_AlmostDone.cs" />
+    <Compile Include="Migrations\202103180453456_AlmostDone.designer.cs">
+      <DependentUpon>202103180453456_AlmostDone.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -117,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103172336149_Foreignkeychange.resx">
       <DependentUpon>202103172336149_Foreignkeychange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103180453456_AlmostDone.resx">
+      <DependentUpon>202103180453456_AlmostDone.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

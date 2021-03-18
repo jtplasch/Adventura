@@ -23,7 +23,8 @@ namespace Adventura.Services
                 ActivityType = model.ActivityType,
                 ActivityDescription = model.ActivityDescription,
                 ActivityLength = model.ActivityLength,
-                ActivityCost = model.ActivityCost
+                ActivityCost = model.ActivityCost,
+                AdventureId = model.AdventureId
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -46,7 +47,8 @@ namespace Adventura.Services
                                 ActivityType = e.ActivityType,
                                 ActivityDescription = e.ActivityDescription,
                                 ActivityLength = e.ActivityLength,
-                                ActivityCost = e.ActivityCost
+                                ActivityCost = e.ActivityCost,
+                                AdventureId = e.AdventureId
                             }
                         );
 
@@ -68,7 +70,8 @@ namespace Adventura.Services
                         ActivityType = entity.ActivityType,
                         ActivityDescription = entity.ActivityDescription,
                         ActivityLength = entity.ActivityLength,
-                        ActivityCost = entity.ActivityCost
+                        ActivityCost = entity.ActivityCost,
+                        AdventureId = entity.AdventureId
                     };
             }
         }
@@ -84,6 +87,7 @@ namespace Adventura.Services
                 entity.ActivityDescription = model.ActivityDescription;
                 entity.ActivityLength = model.ActivityLength;
                 entity.ActivityCost = model.ActivityCost;
+                entity.AdventureId = model.AdventureId;
 
                 return ctx.SaveChanges() == 1;
             }

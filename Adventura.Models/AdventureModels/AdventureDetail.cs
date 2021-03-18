@@ -16,9 +16,9 @@ namespace Adventura.Models
         public DateTimeOffset CreatedUtc { get; set; }
 
         public List<int> LocationIds { get; set; } = new List<int>();
-        public List<int> ActivityId { get; set; } = new List<int>();
+        public List<int> ActivityIds { get; set; } = new List<int>();
 
         public List<string> LocationNames { get; set; } = new List<string>();
-        public List<string> ActivityNames { get; set; } = new List<string>();
+        public List<string> ActivityDescriptions { get; set; } = new List<string>();
     }
 }

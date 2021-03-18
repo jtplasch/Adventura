@@ -70,7 +70,9 @@ namespace Adventura.Services
                         Description = entity.Description,
                         CreatedUtc = entity.CreatedUtc,
                         LocationIds = entity.Locations.Select(x => x.LocationId).ToList(),
-                        LocationNames = entity.Locations.Select(x => x.LocationName).ToList()
+                        LocationNames = entity.Locations.Select(x => x.LocationName).ToList(),
+                        ActivityIds = entity.Activities.Select(x => x.ActivityId).ToList(),
+                        ActivityDescriptions = entity.Activities.Select(x => x.ActivityDescription).ToList()
 
                     };
 
@@ -78,8 +80,8 @@ namespace Adventura.Services
         }
 
         public bool UpdateAdventure(AdventureEdit model)
-        {
-            using(var ctx = new ApplicationDbContext())
+        {           
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx
                     .Adventures

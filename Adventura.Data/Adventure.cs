@@ -26,10 +26,6 @@ namespace Adventura.Data
        
         public virtual List<Location> Locations { get; set; }
         
-        public virtual List<Activity> Activities { get; set; }
-
-        [ForeignKey(nameof(Users))]
-        public int user_Id{ get; set; }
-        public virtual  List<User> Users { get; set; }
+        public virtual List<Activity> Activities { get; set; }        
     }
 }
