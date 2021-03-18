@@ -13,61 +13,60 @@ using System.Web.Http;
 
 namespace Adventura.WebAPI.Controllers
 {
+    [Authorize]
     public class AdventureController : ApiController
     {
-        private readonly AdventureDbContext _context = new AdventureDbContext();
-
-        [HttpPost]
-        public async Task<IHttpActionResult> CreateAdventure(Adventure model)
+        public IHttpActionResult Post(AdventureCreate adventure)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Adventures.Add(model);
-                await _context.SaveChangesAsync();
-
-                return Ok();
-            }
+            if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
+            var service = CreateAdventureService();
+
+            if (!service.CreateAdventure(adventure))
+                return InternalServerError();
+
+            return Ok();
         }
-        
-        [HttpGet]
-        public async Task<IHttpActionResult> GetAllAdventures()
+       
+        public IHttpActionResult Get()
         {
-            List<Adventure> adventures = await _context.Adventures.ToListAsync();
-
-            List<AdventureListItems> adventureList = adventures
-                .Select(a => new AdventureListItems()
-                {
-                    Title = a.Title,
-                    Location = a.Location,
-                    Activities = a.Activities,
-                    CreatedUtc = a.CreatedUtc,
-                    AdventureId = a.AdventureId,
-                }).ToList();
-
-            return Ok(adventureList);
+            AdventureService adventureService = CreateAdventureService();
+            var adventures = adventureService.GetAdventures();
+            return Ok(adventures);
         }
 
-        [HttpGet]
-        public async Task<IHttpActionResult> GetAdventureById(int id)
+        public IHttpActionResult Get(int id)
         {
-            Adventure adventure = await _context.Adventures.FindAsync(id);
-
-            if(adventure == default)
-            {
-                return NotFound();
-            }
-
-            AdventureDetail adventureDetail = new AdventureDetail()
-            {
-                AdventureId = adventure.AdventureId,
-                Title = adventure.Title,
-                Location = adventure.Location,
-                Activities = adventure.Activities,
-                CreatedUtc = adventure.CreatedUtc,
-            };
-            return Ok(adventureDetail);
+            AdventureService adventureService = CreateAdventureService();
+            var adventure = adventureService.GetAdventureById(id);
+            return Ok(adventure);
         }
+
+        public IHttpActionResult Put(AdventureEdit adventure)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateAdventureService();
+
+            if (!service.UpdateAdventure(adventure))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateAdventureService();
+
+            if (!service.DeleteAdventure(id))
+                return InternalServerError();
+
+            return Ok();
+        }
+           
+
 
         private AdventureService CreateAdventureService()
         {

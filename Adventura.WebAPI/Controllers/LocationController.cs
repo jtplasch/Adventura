@@ -9,18 +9,10 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace Adventura.WebAPI.Controllers
-{
-    [Authorize]
+{   
     public class LocationController : ApiController
     {
-        public IHttpActionResult Get()
-        {
-            LocationService locationService = CreateLocationService();
-            var locations = locationService.GetLocations();
-            return Ok(locations);
-        }
-
-        public IHttpActionResult Post(LocationList location)
+        public IHttpActionResult Post(LocationCreate location)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -33,9 +25,50 @@ namespace Adventura.WebAPI.Controllers
             return Ok();
         }
 
+        public IHttpActionResult Get()
+        {
+            LocationService locationService = CreateLocationService();
+            var locations = locationService.GetLocations();
+            return Ok(locations);
+        }
+
+        public IHttpActionResult Get(int id)
+        {
+            LocationService locationService = CreateLocationService();
+            var location = locationService.GetLocationById(id);
+            return Ok(location);
+        }
+
+
+
+        public IHttpActionResult Put(LocationEdit location)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateLocationService();
+
+            if (!service.UpdateLocation(location))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+      
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateLocationService();
+
+            if (!service.DeleteLocation(id))
+                return InternalServerError();
+
+            return Ok();
+        }
+
         private LocationService CreateLocationService()
         {
-            var locationService = new LocationService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var locationService = new LocationService(userId);
             return locationService;
         }
     }

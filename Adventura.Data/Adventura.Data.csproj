@@ -86,16 +86,23 @@
   <ItemGroup>
     <Compile Include="Activity.cs" />
     <Compile Include="Adventure.cs" />
-    <Compile Include="AdventureDbContext.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="location.cs" />
-    <Compile Include="Migrations\202103091426467_InitialCreate.cs" />
-    <Compile Include="Migrations\202103091426467_InitialCreate.designer.cs">
-      <DependentUpon>202103091426467_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202103171810261_AdventureAddActAndLocIDS.cs" />
+    <Compile Include="Migrations\202103171810261_AdventureAddActAndLocIDS.designer.cs">
+      <DependentUpon>202103171810261_AdventureAddActAndLocIDS.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103101528460_InitialMigration.cs" />
-    <Compile Include="Migrations\202103101528460_InitialMigration.designer.cs">
-      <DependentUpon>202103101528460_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202103172252468_Reversion.cs" />
+    <Compile Include="Migrations\202103172252468_Reversion.designer.cs">
+      <DependentUpon>202103172252468_Reversion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103172336149_Foreignkeychange.cs" />
+    <Compile Include="Migrations\202103172336149_Foreignkeychange.designer.cs">
+      <DependentUpon>202103172336149_Foreignkeychange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103180453456_AlmostDone.cs" />
+    <Compile Include="Migrations\202103180453456_AlmostDone.designer.cs">
+      <DependentUpon>202103180453456_AlmostDone.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,11 +112,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103091426467_InitialCreate.resx">
-      <DependentUpon>202103091426467_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103171810261_AdventureAddActAndLocIDS.resx">
+      <DependentUpon>202103171810261_AdventureAddActAndLocIDS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103101528460_InitialMigration.resx">
-      <DependentUpon>202103101528460_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103172252468_Reversion.resx">
+      <DependentUpon>202103172252468_Reversion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103172336149_Foreignkeychange.resx">
+      <DependentUpon>202103172336149_Foreignkeychange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103180453456_AlmostDone.resx">
+      <DependentUpon>202103180453456_AlmostDone.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

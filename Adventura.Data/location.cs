@@ -12,15 +12,15 @@ namespace Adventura.Data
     {
         [Key]
         public int LocationId { get; set; }
-        
+
         [Required]
         public string LocationName { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
 
-        [Required]
         [ForeignKey(nameof(Adventure))]
         public int AdventureId { get; set; }
+        public virtual Adventure Adventure { get; set; }
     }
 }

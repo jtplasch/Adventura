@@ -10,14 +10,18 @@ namespace Adventura.Services
 {
     public class LocationService
     {
-        public bool CreateLocation(LocationList model)
+        private readonly Guid _userid;
+        public LocationService(Guid userid)
         {
+            _userid = userid;
+        }
+
+        public bool CreateLocation(LocationCreate model)
+        {           
             var entity = new Location()
-            {
-                LocationId = model.LocationId,
+            {                
                 LocationName = model.LocationName,
-                AdventureId = model.AdventureId,
-                CreatedUtc = DateTimeOffset.Now
+                AdventureId = model.AdventureId
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -41,11 +45,61 @@ namespace Adventura.Services
                         {
                             LocationId = e.LocationId,
                             LocationName = e.LocationName,
-                            AdventureId = e.AdventureId,
-                            CreatedUtc = e.CreatedUtc
+                            CreatedUtc = e.CreatedUtc,
+                            AdventureId = e.AdventureId
                         }
                         );
                 return query.ToArray();
+            }
+        }
+
+        public LocationDelete GetLocationById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Locations
+                        .Single(e => e.LocationId == id);
+                return
+                    new LocationDelete
+                    {
+                        LocationName = entity.LocationName,
+                        CreatedUtc = entity.CreatedUtc,
+                        AdventureId = entity.AdventureId
+                    };
+            }
+        }
+
+        public bool UpdateLocation(LocationEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Locations
+                        .Single(e => e.LocationId == model.LocationId);
+
+                entity.LocationId = model.LocationId;
+                entity.LocationName = model.LocationName;
+                entity.AdventureId = model.AdventureId;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteLocation(int locationId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Locations
+                        .Single(e => e.LocationId == locationId);
+
+                ctx.Locations.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

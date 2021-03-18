@@ -23,9 +23,8 @@ namespace Adventura.Services
             {
                 OwnerId = _userId,              
                 Title = model.Title,
-                Location = model.Location,
-                Activities = model.Activities,
-                CreatedUtc = DateTimeOffset.Now
+                Description = model.Description,
+                CreatedUtc = DateTimeOffset.Now              
             };
 
             using(var ctx = new ApplicationDbContext())
@@ -48,10 +47,8 @@ namespace Adventura.Services
                         .Select(e => new AdventureListItems
                             {
                                 AdventureId = e.AdventureId,
-                                Title = e.Title,
-                                Location = e.Location,
-                                Activities = e.Activities,
-                                CreatedUtc = e.CreatedUtc
+                                Title = e.Title,                                
+                                CreatedUtc = e.CreatedUtc                                
                             }
                         );
                 return query.ToArray();                                                     
@@ -60,7 +57,7 @@ namespace Adventura.Services
 
         public AdventureDetail GetAdventureById(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx
                     .Adventures
@@ -70,10 +67,45 @@ namespace Adventura.Services
                     {
                         AdventureId = entity.AdventureId,
                         Title = entity.Title,
-                        Location = entity.Location,
-                        Activities = entity.Activities,
-                        CreatedUtc = entity.CreatedUtc
+                        Description = entity.Description,
+                        CreatedUtc = entity.CreatedUtc,
+                        LocationIds = entity.Locations.Select(x => x.LocationId).ToList(),
+                        LocationNames = entity.Locations.Select(x => x.LocationName).ToList(),
+                        ActivityIds = entity.Activities.Select(x => x.ActivityId).ToList(),
+                        ActivityDescriptions = entity.Activities.Select(x => x.ActivityDescription).ToList()
+
                     };
+
+            }
+        }
+
+        public bool UpdateAdventure(AdventureEdit model)
+        {           
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Adventures
+                    .Single(e => e.AdventureId == model.AdventureId && e.OwnerId == _userId);
+
+                entity.AdventureId = model.AdventureId;
+                entity.Title = model.Title;
+                entity.Description = model.Description;                
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteAdventure(int adventureId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Adventures
+                    .Single(e => e.AdventureId == adventureId && e.OwnerId == _userId);
+
+                ctx.Adventures.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

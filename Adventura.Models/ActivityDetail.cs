@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Adventura.Models
 {
-    public class ActivityListItem
+    public class ActivityDetail
     {
+        public int ActivityId { get; set; }
         [Display(Name = "Type of Activity")]
         public TypeOfActivity ActivityType { get; set; }
         [Display(Name = "Description")]

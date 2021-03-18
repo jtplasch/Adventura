@@ -13,7 +13,9 @@ namespace Adventura.Data
         Biking,
         Canoe,
         Climbing,
+        DiscGolfing,
         Fishing,
+        Golfing,
         Hiking,
         Kayak,
         Parks,
@@ -22,22 +24,24 @@ namespace Adventura.Data
     public class Activity
     {
         [Key]
+        [Display(Name = "Id")]
         public int ActivityId { get; set; }
 
         [Required]
+        [Display(Name = "Type")]
         public TypeOfActivity ActivityType { get; set; }
 
         [Required]
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
+        [Display(Name = "Description")]
         public string ActivityDescription { get; set; }
-
+        [Display(Name = "Time")]
         public int ActivityLength { get; set; }
-
+        [Display(Name = "Cost")]
         public double ActivityCost { get; set; }
 
-        [Required]
-        [ForeignKey(nameof(Location))]
-        public int LocationId { get; set; }
-        public virtual Location Location { get; set; }
+        [ForeignKey(nameof(Adventure))]
+        public int AdventureId { get; set; }
+        public virtual Adventure Adventure { get; set; }
     }
 }
