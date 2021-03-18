@@ -9,6 +9,8 @@ namespace Adventura.Tests
         [TestMethod]
         public void TestMethod1()
         {
+
+            
         }
     }
 }

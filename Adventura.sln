@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventura.Models", "Adventu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventura.Tests", "Adventura.Tests\Adventura.Tests.csproj", "{8C1B378B-DEB5-4070-8E75-7A5AF9D722C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventura.UI", "Adventura.UI\Adventura.UI.csproj", "{7B950975-393B-4AE4-B4B3-EDE9A62F26C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{8C1B378B-DEB5-4070-8E75-7A5AF9D722C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C1B378B-DEB5-4070-8E75-7A5AF9D722C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C1B378B-DEB5-4070-8E75-7A5AF9D722C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B950975-393B-4AE4-B4B3-EDE9A62F26C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B950975-393B-4AE4-B4B3-EDE9A62F26C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B950975-393B-4AE4-B4B3-EDE9A62F26C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B950975-393B-4AE4-B4B3-EDE9A62F26C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
