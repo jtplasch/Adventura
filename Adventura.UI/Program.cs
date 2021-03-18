@@ -10,7 +10,11 @@ namespace Adventura.UI
     {
         static void Main(string[] args)
         {
+            UIService service = new UIService();
+            UI UI = new UI(service);
 
+            UI.Run();
+            UI.Menu();
         }
     }
 }

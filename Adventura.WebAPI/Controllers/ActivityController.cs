@@ -15,6 +15,7 @@ namespace Adventura.WebAPI.Controllers
     [Authorize]
     public class ActivityController : ApiController
     {
+        List<Activity> activities = new List<Activity>();
         public IHttpActionResult Post(ActivityCreate activity)
         {
             if (!ModelState.IsValid)
