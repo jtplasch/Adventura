@@ -20,8 +20,11 @@ namespace Adventura.UI
 
         public void Run()
         {
-
             _service = new UIService();
+        }
+        public void Menu()
+        {
+
             bool continueToRun = true;
             while (continueToRun)
             {
@@ -44,6 +47,15 @@ namespace Adventura.UI
                     case "3":
                         GetActivity();
                         break;
+                  /*case "4":
+                   *    CreateAdventure();
+                        break;
+                  case "5":
+                   *    CreateLocation();
+                        break;
+                  case "6":
+                   *    CreateActivity();
+                        break;*/
                     case "4":
                         continueToRun = false;
                         break;
@@ -59,7 +71,8 @@ namespace Adventura.UI
             Console.Clear();
             Console.WriteLine("What is the ID of the Adventure you want to see?");
             string id = Console.ReadLine();
-
+            Console.ReadKey(); 
+            
             Console.WriteLine("Loading...");
             Thread.Sleep(50);
             Adventure adventure = _service.GetAsync<Adventure>($"https://localhost:44301/api/adventure/{id}/").Result;
@@ -68,6 +81,19 @@ namespace Adventura.UI
             Console.WriteLine($"\n\n{adventure.AdventureId} {adventure.Description} {adventure.Description}");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
+
+            /*if (id == Adventure.AdventureId)
+            {
+
+                Console.WriteLine("Loading...");
+                Thread.Sleep(50);
+                Adventure adventure = _service.GetAsync<Adventure>($"https://localhost:44301/api/adventure/{id}/").Result;
+                Console.Clear();
+
+                Console.WriteLine($"\n\n{adventure.AdventureId} {adventure.Description} {adventure.Description}");
+                Console.WriteLine("Press any key to continue...");
+            }
+            Menu();*/
         }
 
         public void GetLocation()
