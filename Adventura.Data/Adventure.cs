@@ -23,17 +23,9 @@ namespace Adventura.Data
         public string Description { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
-
-        [ForeignKey(nameof(Locations))]
-        public int LocationId { get; set; }
+       
         public virtual List<Location> Locations { get; set; }
-
-        [ForeignKey(nameof(Activities))]
-        public int ActivityId { get; set; }
-        public virtual List<Activity> Activities { get; set; }
-
-        [ForeignKey(nameof(Users))]
-        public int user_Id{ get; set; }
-        public virtual List<User> Users { get; set; }
+        
+        public virtual List<Activity> Activities { get; set; }        
     }
 }

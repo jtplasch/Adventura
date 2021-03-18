@@ -18,5 +18,6 @@ namespace Adventura.Models
         public int ActivityLength { get; set; }
         [Display(Name = "Cost")]
         public double ActivityCost { get; set; }
+        public int AdventureId { get; set; }
     }
 }

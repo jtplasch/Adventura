@@ -20,7 +20,8 @@ namespace Adventura.Services
         {           
             var entity = new Location()
             {                
-                LocationName = model.LocationName               
+                LocationName = model.LocationName,
+                AdventureId = model.AdventureId
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -44,7 +45,8 @@ namespace Adventura.Services
                         {
                             LocationId = e.LocationId,
                             LocationName = e.LocationName,
-                            CreatedUtc = e.CreatedUtc
+                            CreatedUtc = e.CreatedUtc,
+                            AdventureId = e.AdventureId
                         }
                         );
                 return query.ToArray();
@@ -63,7 +65,8 @@ namespace Adventura.Services
                     new LocationDelete
                     {
                         LocationName = entity.LocationName,
-                        CreatedUtc = entity.CreatedUtc
+                        CreatedUtc = entity.CreatedUtc,
+                        AdventureId = entity.AdventureId
                     };
             }
         }
@@ -78,7 +81,8 @@ namespace Adventura.Services
                         .Single(e => e.LocationId == model.LocationId);
 
                 entity.LocationId = model.LocationId;
-                entity.LocationName = model.LocationName;                
+                entity.LocationName = model.LocationName;
+                entity.AdventureId = model.AdventureId;
 
                 return ctx.SaveChanges() == 1;
             }

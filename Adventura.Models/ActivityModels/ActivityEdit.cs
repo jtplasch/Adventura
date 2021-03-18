@@ -14,5 +14,6 @@ namespace Adventura.Models
         public string ActivityDescription { get; set; }
         public int ActivityLength { get; set; }
         public double ActivityCost { get; set; }
+        public int AdventureId { get; set; }
     }
 }
