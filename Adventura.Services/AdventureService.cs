@@ -24,7 +24,7 @@ namespace Adventura.Services
                 OwnerId = _userId,              
                 Title = model.Title,
                 Description = model.Description,
-                CreatedUtc = DateTimeOffset.Now             
+                CreatedUtc = DateTimeOffset.Now              
             };
 
             using(var ctx = new ApplicationDbContext())
@@ -48,7 +48,7 @@ namespace Adventura.Services
                             {
                                 AdventureId = e.AdventureId,
                                 Title = e.Title,                                
-                                CreatedUtc = e.CreatedUtc
+                                CreatedUtc = e.CreatedUtc                                
                             }
                         );
                 return query.ToArray();                                                     
@@ -68,7 +68,10 @@ namespace Adventura.Services
                         AdventureId = entity.AdventureId,
                         Title = entity.Title,
                         Description = entity.Description,
-                        CreatedUtc = entity.CreatedUtc
+                        CreatedUtc = entity.CreatedUtc,
+                        LocationIds = entity.Locations.Select(x => x.LocationId).ToList(),
+                        LocationNames = entity.Locations.Select(x => x.LocationName).ToList()
+
                     };
 
             }
@@ -84,7 +87,7 @@ namespace Adventura.Services
 
                 entity.AdventureId = model.AdventureId;
                 entity.Title = model.Title;
-                entity.Description = model.Description;
+                entity.Description = model.Description;                
 
                 return ctx.SaveChanges() == 1;
             }

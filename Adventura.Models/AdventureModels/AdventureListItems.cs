@@ -13,5 +13,7 @@ namespace Adventura.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }        
+        public List<int> LocationId { get; set; }
+        public List<int> ActivityId { get; set; }
     }
 }

@@ -39,5 +39,9 @@ namespace Adventura.Data
         public int ActivityLength { get; set; }
         [Display(Name = "Cost")]
         public double ActivityCost { get; set; }
+
+        [ForeignKey(nameof(Adventure))]
+        public int AdventureId { get; set; }
+        public virtual Adventure Adventure { get; set; }
     }
 }

@@ -13,8 +13,12 @@ namespace Adventura.Models
         public int AdventureId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTimeOffset CreatedUtc { get; set; }   
-        
-        //public string locations and activities??
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        public List<int> LocationIds { get; set; } = new List<int>();
+        public List<int> ActivityId { get; set; } = new List<int>();
+
+        public List<string> LocationNames { get; set; } = new List<string>();
+        public List<string> ActivityNames { get; set; } = new List<string>();
     }
 }
