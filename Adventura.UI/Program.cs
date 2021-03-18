@@ -14,6 +14,7 @@ namespace Adventura.UI
             UI UI = new UI(service);
 
             UI.Run();
+            UI.Menu();
         }
     }
 }
